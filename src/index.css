@@ -1,0 +1,298 @@
+
+@import "tailwindcss";
+
+:root {
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-technical: 'IBM Plex Mono', 'Consolas', monospace;
+
+  font-family: var(--font-body);
+  color: #f5f5f5;
+  background: #08080a;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-technical {
+  font-family: var(--font-technical);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: #08080a;
+}
+
+button, a {
+  font-family: var(--font-body);
+}
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.page-transition {
+  animation: page-enter 650ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.project-dossier-backdrop {
+  animation: dossier-backdrop-in 240ms ease-out both;
+}
+
+.project-dossier-panel {
+  animation: dossier-panel-in 240ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.project-dossier-backdrop--closing {
+  animation: dossier-backdrop-out 240ms ease-in both;
+}
+
+.project-dossier-panel--closing {
+  animation: dossier-panel-out 240ms ease-in both;
+}
+
+.project-photo {
+  transition:
+    translate 260ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    scale 260ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.project-photo-frame {
+  transition:
+    border-color 260ms ease,
+    box-shadow 260ms ease;
+}
+
+.project-photo-pin {
+  transition:
+    background-color 260ms ease,
+    box-shadow 260ms ease;
+}
+
+.project-photo-image {
+  transition:
+    transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 320ms ease;
+}
+
+.project-photo--selected {
+  z-index: 20;
+}
+
+.project-photo--selected .project-photo-frame {
+  border-color: rgb(255 185 0 / 80%);
+  box-shadow:
+    0 0 0 1px rgb(255 185 0 / 24%),
+    0 18px 38px rgb(0 0 0 / 55%);
+}
+
+.project-photo--selected .project-photo-pin {
+  box-shadow: 0 0 14px rgb(255 185 0 / 65%);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .project-photo:hover {
+    translate: 0 -4px;
+    scale: 1.008;
+    z-index: 20;
+  }
+
+  .project-photo:hover .project-photo-frame {
+    border-color: rgb(255 185 0 / 75%);
+    box-shadow: 0 18px 36px rgb(0 0 0 / 55%);
+  }
+
+  .project-photo:hover .project-photo-image {
+    transform: scale(1.025);
+  }
+}
+
+.home-scene {
+  animation: scene-drift 24s ease-in-out infinite alternate;
+  transform: scale(1.04);
+  opacity: 0;
+  transition: opacity 900ms ease;
+}
+
+.home-scene.is-visible {
+  opacity: 0.85;
+}
+
+.home-intro {
+  animation: intro-rise 850ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.home-intro--pending,
+.home-title-line--pending {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.home-intro--one {
+  animation-delay: 100ms;
+}
+
+.home-title-line {
+  animation: intro-rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.home-title-line--one {
+  animation-delay: 260ms;
+}
+
+.home-title-line--two {
+  animation-delay: 430ms;
+}
+
+.home-title-line--three {
+  animation-delay: 600ms;
+}
+
+.home-intro--three {
+  animation-delay: 850ms;
+}
+
+.home-intro--four {
+  animation-delay: 1050ms;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dossier-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dossier-backdrop-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dossier-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dossier-panel-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(4px) scale(0.99);
+  }
+}
+
+@keyframes intro-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scene-drift {
+  from {
+    transform: scale(1.04) translate3d(-0.4%, 0, 0);
+  }
+  to {
+    transform: scale(1.1) translate3d(0.4%, -0.5%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .home-scene {
+    animation: none;
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+
+  .home-intro,
+  .home-title-line,
+  .home-intro--pending,
+  .home-title-line--pending {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .project-photo,
+  .project-photo-frame,
+  .project-photo-pin,
+  .project-photo-image {
+    animation: none !important;
+    transition: none !important;
+  }
+}
