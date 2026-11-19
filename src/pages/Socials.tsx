@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import discordIcon from '../assets/images/discord.png'
-import emailIcon from '../assets/images/email.png'
+import InnerNavigation from '../components/InnerNavigation'
+import discordIcon from '../assets/images/discord.webp'
+import emailIcon from '../assets/images/email.webp'
 import gunsIcon from '../assets/images/guns.png'
 import twitchIcon from '../assets/images/twitch.png'
-import xIcon from '../assets/images/x.png'
+import xIcon from '../assets/images/x.webp'
 import youtubeIcon from '../assets/images/youtube.png'
 
 const emailAddress = 'pwake.labs@gmail.com'
@@ -68,48 +68,31 @@ function Socials() {
 
   return (
     <main className="min-h-screen bg-[#08080A] text-[#F5F5F5]">
+      <InnerNavigation activePath="/socials" />
       <div className="mx-auto flex min-h-screen w-full max-w-[1160px] flex-col px-5 sm:px-8 lg:px-12">
-        <header className="pt-6 sm:pt-8">
-          <div className="flex items-center justify-between border-b border-[#29292D] pb-4">
-            <Link
-              to="/"
-              className="font-display inline-flex min-h-11 items-center px-2 text-lg font-semibold tracking-[0.14em] sm:text-xl"
-            >
-              PWAKE<span className="text-[#FFB900]">.</span>
-            </Link>
-            <Link
-              to="/index"
-              className="ml-3 inline-flex min-h-11 shrink-0 items-center px-2 text-xs text-[#9299A6] transition-colors duration-200 hover:text-[#FFB900] focus-visible:outline focus-visible:outline-1 focus-visible:outline-[#FFB900] sm:text-sm"
-            >
-              ← INDEX
-            </Link>
-          </div>
-
-          <div className="max-w-3xl py-12 sm:py-16 md:py-20">
-            <p className="mb-5 text-sm font-medium text-[#9299A6]">
-              A little about what I make
-            </p>
-            <h1 className="font-display text-[clamp(3.25rem,8vw,6rem)] font-semibold leading-[0.94] tracking-[-0.06em]">
-              The Signal <span className="text-[#FFB900]">Room.</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-[#B8BEC8] sm:text-lg sm:leading-8">
-              I make Roblox videos, stream, and spend time with the communities
-              that grow around them. Find my videos, catch a stream, or just say
-              hello.
-            </p>
-          </div>
-        </header>
+        <div className="max-w-3xl py-12 sm:py-16 md:py-20">
+          <p className="mb-5 text-sm font-medium text-[#9299A6]">
+            Videos, streams, and community
+          </p>
+          <h1 className="font-display text-[clamp(3.25rem,8vw,6rem)] font-semibold leading-[0.94] tracking-[-0.06em]">
+            The Signal <span className="text-[#FFB900]">Room.</span>
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-[#B8BEC8] sm:text-lg sm:leading-8">
+            I make Roblox videos and stream games I enjoy for my community.
+            Find my videos, catch a stream, or say hello.
+          </p>
+        </div>
 
         <section aria-labelledby="youtube-heading" className="pb-14 sm:pb-16">
-          <div className="grid border-y border-[#29292D] md:grid-cols-[1.2fr_0.8fr]">
+          <div className="grid border-y border-[#1F1F23] md:grid-cols-[1.2fr_0.8fr]">
             <a
               href="https://youtube.com/@pwakeyt"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube: @pwakeyt, opens in a new tab"
-              className="group flex min-h-56 items-center gap-5 py-8 pr-4 outline-none transition-colors hover:bg-white/[0.025] focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-[#FFB900] sm:gap-7 sm:py-10 md:min-h-64 md:pr-10"
+              className="group flex min-h-56 items-center gap-5 py-8 pr-4 transition-colors hover:bg-white/[0.025] focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-[#FFB900] sm:gap-7 sm:py-10 md:min-h-64 md:pr-10"
             >
-              <div className="flex h-[68px] w-[68px] shrink-0 items-center justify-center border border-[#29292D] bg-[#101013] sm:h-20 sm:w-20">
+              <div className="flex h-[68px] w-[68px] shrink-0 items-center justify-center border border-[#1F1F23] bg-[#101013] sm:h-20 sm:w-20">
                 <img
                   src={youtubeIcon}
                   alt=""
@@ -133,7 +116,7 @@ function Socials() {
               </div>
             </a>
 
-            <div className="flex items-center border-t border-[#29292D] py-6 md:border-l md:border-t-0 md:px-8">
+            <div className="flex items-center border-t border-[#1F1F23] py-6 md:border-l md:border-t-0 md:px-8">
               <p className="max-w-xs text-sm leading-6 text-[#9299A6]">
                 A combined audience of{' '}
                 <span className="font-display text-2xl font-semibold tracking-[-0.04em] text-[#F5F5F5] sm:text-3xl">
@@ -154,15 +137,15 @@ function Socials() {
               Elsewhere
             </h2>
             <p className="text-sm leading-6 text-[#9299A6]">
-              Catch a stream or find me on other platforms.
+              More places to watch and connect.
             </p>
           </div>
 
-          <ul className="grid border-t border-[#29292D] sm:grid-cols-3">
+          <ul className="grid border-t border-[#1F1F23] sm:grid-cols-3">
             {otherPlatforms.map((platform) => (
               <li
                 key={platform.name}
-                className="border-b border-[#29292D] sm:border-r sm:last:border-r-0"
+                className="border-b border-[#1F1F23] sm:border-r sm:last:border-r-0"
               >
                 <a
                   href={platform.href}
@@ -186,7 +169,7 @@ function Socials() {
                       {platform.handle}
                     </span>
                   </span>
-                  <span className="text-[#626B78] group-hover:text-[#FFB900]">
+                  <span className="text-[#9299A6] group-hover:text-[#FFB900]">
                     <ArrowIcon />
                   </span>
                 </a>
@@ -195,9 +178,9 @@ function Socials() {
           </ul>
         </section>
 
-        <div className="grid gap-10 border-t border-[#29292D] py-10 md:grid-cols-2 md:gap-14 md:py-12">
-          <section aria-labelledby="community-heading">
-            <p className="mb-4 text-sm text-[#9299A6]">A place to hang out</p>
+        <div className="grid gap-10 border-t border-[#1F1F23] py-10 md:grid-cols-2 md:gap-14 md:py-12">
+          <section aria-labelledby="community-heading" className="border-t border-[#1F1F23] pt-8 md:border-t-0 md:pt-0">
+            <p className="mb-4 text-sm text-[#9299A6]">Discord community</p>
             <div className="flex items-start gap-4">
               <img
                 src={discordIcon}
@@ -215,14 +198,14 @@ function Socials() {
                 </h2>
                 <p className="mt-1 text-sm text-[#9299A6]">Discord · pwakee</p>
                 <p className="mt-4 max-w-md text-[15px] leading-7 text-[#B8BEC8]">
-                  A gaming community to chat, interact, and meet people who
-                  enjoy being part of the squad.
+                  Dragon Squad is my Discord community, where people who enjoy
+                  the squad can chat, interact, and meet each other.
                 </p>
               </div>
             </div>
           </section>
 
-          <section aria-labelledby="contact-heading" className="md:border-l md:border-[#29292D] md:pl-10">
+          <section aria-labelledby="contact-heading" className="md:border-l md:border-[#1F1F23] md:pl-10">
             <p className="mb-4 text-sm text-[#9299A6]">For questions, ideas, or a hello</p>
             <h2
               id="contact-heading"
@@ -240,7 +223,7 @@ function Socials() {
               />
               <a
                 href={`mailto:${emailAddress}`}
-                className="min-h-11 break-all py-2 text-[15px] text-[#F5F5F5] underline decoration-[#626B78] underline-offset-4 transition-colors hover:text-[#FFB900] focus-visible:outline focus-visible:outline-1 focus-visible:outline-[#FFB900] sm:text-base"
+                className="min-h-11 break-all py-2 text-[15px] text-[#F5F5F5] underline decoration-[#9299A6] underline-offset-4 transition-colors hover:text-[#FFB900] focus-visible:outline focus-visible:outline-1 focus-visible:outline-[#FFB900] sm:text-base"
               >
                 {emailAddress}
               </a>
@@ -249,7 +232,7 @@ function Socials() {
                 onClick={copyEmail}
                 aria-label="Copy email address"
                 title={copyStatus || 'Copy email address'}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-sm text-[#9299A6] transition-colors hover:text-[#FFB900] focus-visible:outline focus-visible:outline-1 focus-visible:outline-[#FFB900]"
+                className="inline-flex h-11 w-11 items-center justify-center text-[#9299A6] transition-colors hover:text-[#FFB900] focus-visible:outline focus-visible:outline-1 focus-visible:outline-[#FFB900]"
               >
                 <svg
                   viewBox="0 0 20 20"
@@ -273,16 +256,16 @@ function Socials() {
                   />
                 </svg>
               </button>
-              <p aria-live="polite" className="sr-only">
+              <span aria-live="polite" className="text-sm text-[#9299A6]">
                 {copyStatus}
-              </p>
+              </span>
             </div>
           </section>
         </div>
 
-        <footer className="mt-auto flex flex-col gap-3 border-t border-[#29292D] py-5 sm:flex-row sm:items-center sm:justify-between">
-          <span className="text-xs text-[#626B78]">PWAKE / PERSONAL NETWORK</span>
-          <span className="text-xs text-[#626B78]">Thanks for stopping by.</span>
+        <footer className="mt-auto flex flex-col gap-3 border-t border-[#1F1F23] py-5 sm:flex-row sm:items-center sm:justify-between">
+          <span className="text-xs text-[#9299A6]">PWAKE / PERSONAL NETWORK</span>
+          <span className="text-xs text-[#9299A6]">Thanks for stopping by.</span>
         </footer>
       </div>
     </main>

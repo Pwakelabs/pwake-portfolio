@@ -11,7 +11,7 @@ const sections = [
   {
     number: '01',
     title: 'Projects & Applications',
-    description: 'Things I have designed, developed and brought to life.',
+    description: 'Websites and personal projects I have built.',
     image: projectsImage,
     path: '/projects',
     label: 'EXPLORE PROJECTS',
@@ -19,7 +19,7 @@ const sections = [
   {
     number: '02',
     title: 'Education & Skills',
-    description: 'What I am learning, building and improving along the way.',
+    description: 'What I am studying and learning as I build.',
     image: educationImage,
     path: '/education',
     label: 'VIEW BACKGROUND',
@@ -27,7 +27,7 @@ const sections = [
   {
     number: '03',
     title: 'About Me',
-    description: 'The person behind the pixels.',
+    description: 'My interests and how I got into making things online.',
     image: aboutImage,
     path: '/about',
     label: 'GET TO KNOW ME',
@@ -35,7 +35,7 @@ const sections = [
   {
     number: '04',
     title: 'Links & Socials',
-    description: 'Find me across the internet.',
+    description: 'My videos, streams, and ways to get in touch.',
     image: socialsImage,
     path: '/socials',
     label: 'FIND ME ONLINE',
@@ -44,7 +44,7 @@ const sections = [
 
 function PortfolioIndex() {
   return (
-    <main className="min-h-screen bg-[#08080a] text-white">
+    <main className="min-h-screen bg-[#08080A] text-white">
       <nav className="relative z-20 flex items-center justify-between border-b border-white/10 px-6 py-6 md:px-12">
         <Link to="/" className="font-display inline-flex min-h-11 items-center px-2 text-xl font-semibold tracking-[0.16em]">
           PWAKE<span className="text-amber-400">.</span>
@@ -72,8 +72,8 @@ function PortfolioIndex() {
             </div>
 
             <p className="max-w-sm text-[15px] leading-7 text-gray-400">
-              A collection of projects, experiences, interests and everything
-              in between.
+              Browse my projects, what I’m learning, a little about me, and
+              where to find me.
             </p>
           </div>
         </ScrollReveal>
@@ -88,6 +88,8 @@ function PortfolioIndex() {
                 <img
                   src={section.image}
                   alt=""
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 -z-20 h-full w-full object-cover grayscale-[65%] transition duration-700 ease-out group-hover:scale-105 group-hover:grayscale-[15%]"
                 />
 

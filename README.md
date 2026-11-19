@@ -50,3 +50,9 @@ The production files are written to `dist/`. To serve that build locally:
 ```sh
 npm run preview
 ```
+
+## Netlify deployment
+
+The repository includes a `netlify.toml` that pins Node.js 22.12.0, runs
+`npm run build`, and publishes `dist/`. The `public/_redirects` rule provides
+the SPA fallback needed for direct visits to portfolio routes.

@@ -1,14 +1,20 @@
 
 @import "tailwindcss";
 
+@theme {
+  --color-amber-400: #FFB900;
+  --color-gray-500: #9299A6;
+  --color-gray-600: #7E8792;
+}
+
 :root {
-  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
   --font-body: 'Inter', 'Segoe UI', sans-serif;
   --font-technical: 'IBM Plex Mono', 'Consolas', monospace;
 
   font-family: var(--font-body);
   color: #f5f5f5;
-  background: #08080a;
+  background: #08080A;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,6 +27,8 @@ body {
 
 .font-display {
   font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 .font-body {
@@ -38,12 +46,18 @@ html {
 body {
   min-width: 320px;
   min-height: 100vh;
-  background: #08080a;
+  background: #08080A;
 }
 
 button, a {
   font-family: var(--font-body);
 }
+
+:focus-visible {
+  outline: 2px solid #FFB900;
+  outline-offset: 3px;
+}
+
 #root {
   width: 100%;
   min-height: 100vh;

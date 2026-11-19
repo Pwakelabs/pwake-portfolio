@@ -6,29 +6,40 @@ import Education from './pages/Education'
 import PortfolioIndex from './pages/PortfolioIndex'
 import Projects from './pages/Projects'
 import Socials from './pages/Socials'
-import gothamBg from './assets/images/gotham-bg.png'
+import gothamBg from './assets/images/gotham-bg.webp'
+import batmanGif from './assets/animations/batman-loading.gif'
 
 function Home({ introComplete }: { introComplete: boolean }) {
   const introState = introComplete ? '' : 'home-intro--pending'
 
   return (
-    <main className="min-h-screen bg-[#08080a] text-white">
-      <nav className="relative z-20 flex items-center justify-between px-8 py-7 md:px-16">
-        <Link to="/" className="font-display inline-flex min-h-11 items-center px-2 text-2xl font-semibold tracking-[0.12em]">
-          PWAKE<span className="text-amber-400">.</span>
+    <main className="min-h-screen bg-[#08080A] text-white">
+      <nav className="relative z-20 flex items-center justify-between px-5 py-5 sm:px-8 sm:py-7 md:px-16">
+        <Link to="/" className="inline-flex min-h-11 items-center gap-2.5 px-2 text-2xl tracking-[0.04em] sm:gap-3 sm:text-3xl">
+          <span className="font-display font-semibold">PWAKE</span>
+          <img
+            src={batmanGif}
+            alt=""
+            aria-hidden="true"
+            className="h-7 w-7 object-contain sm:h-8 sm:w-8"
+          />
         </Link>
       </nav>
 
-      <section className="relative flex min-h-[85vh] items-center overflow-hidden px-8 md:px-32">
-        <div
+      <section className="relative flex min-h-[85vh] items-center overflow-hidden px-5 sm:px-8 md:px-20 lg:px-32">
+        <img
           aria-hidden="true"
-          className={`home-scene absolute inset-0 bg-cover bg-center ${
+          alt=""
+          src={gothamBg}
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          className={`home-scene absolute inset-0 h-full w-full object-cover object-center ${
             introComplete ? 'is-visible' : ''
           }`}
-          style={{ backgroundImage: `url(${gothamBg})` }}
         />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/20" />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#08080a] via-transparent to-black/20" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#08080A] via-transparent to-black/20" />
         <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_50%,rgba(180,120,20,0.12),transparent_55%)]" />
 
         <div className="relative z-10 max-w-3xl">
@@ -56,7 +67,7 @@ function Home({ introComplete }: { introComplete: boolean }) {
           <div className={`${introComplete ? 'home-intro home-intro--four' : introState} mt-10`}>
             <Link
               to="/index"
-              className="inline-block bg-amber-400 px-7 py-3 font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-amber-300 hover:shadow-[0_12px_40px_rgba(251,191,36,0.2)]"
+              className="inline-block bg-amber-400 px-7 py-3 font-semibold text-black transition duration-300 hover:-translate-y-1 hover:bg-amber-300 hover:shadow-[0_12px_40px_rgba(255,185,0,0.2)]"
             >
               Open Portfolio Index
             </Link>
@@ -116,14 +127,21 @@ function App() {
     setIntroStage('exiting')
   }
 
+  function handleSkipIntro() {
+    setIntroStage('complete')
+  }
+
   return (
     <BrowserRouter>
-      <AnimatedRoutes introComplete={introStage === 'complete'} />
+      <div inert={introStage !== 'complete'}>
+        <AnimatedRoutes introComplete={introStage === 'complete'} />
+      </div>
       {introStage !== 'complete' && (
         <BatmanLoader
           isExiting={introStage === 'exiting'}
           onLoad={handleGifLoad}
           onError={handleGifError}
+          onSkip={handleSkipIntro}
         />
       )}
     </BrowserRouter>
